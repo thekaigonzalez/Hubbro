@@ -10,4 +10,12 @@ def repository_language_iterator():
         o += 1
     return l
 
+def repository_name_iterator():
+    o = 0
+    l = []
+    for i in requests.get("https://api.github.com/users/thekaigonzalez/repos").json():
+        l.append(requests.get("https://api.github.com/users/thekaigonzalez/repos").json()[o]['name'])
+        o += 1
+    return l
+
 print(repository_language_iterator())
